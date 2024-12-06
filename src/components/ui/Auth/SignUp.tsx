@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { FaFacebook, FaGooglePlus, FaXTwitter, FaLock, FaEye, FaEyeSlash, FaUser } from 'react-icons/fa6';
 import { IoMdMail } from "react-icons/io";
-import api, { setAuthToken } from '../../../utils/Api';
+import api from '../../../utils/Api';
 
 const SignUp: React.FC = () => {
     const navigate = useNavigate();

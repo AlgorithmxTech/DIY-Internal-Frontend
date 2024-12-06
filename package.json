@@ -8,7 +8,6 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "lint:scripts": "eslint .",
-    "lint:styles": "stylelint '**/*.css'",
     "preview": "vite preview"
   },
   "dependencies": {
