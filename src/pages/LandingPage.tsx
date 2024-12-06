@@ -6,14 +6,14 @@ import HowItWork from '../components/ui/landing/HowItWork'
 import Testimonial from '../components/ui/landing/Testimonial'
 import Pricing from '../components/ui/landing/Pricing'
 
-const LandingPage:React.FC = () => {
+const LandingPage: React.FC = () => {
   return (
     <Layout>
-<Hero/>
-<Unique/>
-<HowItWork/>
-<Testimonial/>
-<Pricing/>
+      <Hero />
+      <Unique />
+      <HowItWork />
+      <Testimonial />
+      <Pricing />
     </Layout>
   )
 }
