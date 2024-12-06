@@ -39,7 +39,7 @@ const NavBar: React.FC = () => {
                         <a href="/contact" className="text-gray-800 hover:text-gray-600">Contact</a>
                     </div>
                     <div className="hidden md:flex md:items-center md:space-x-4">
-                        <a href="/login" className="text-gray-800 hover:text-gray-600">Login</a>
+                        <a href="/signin" className="text-gray-800 hover:text-gray-600">Login</a>
                         <a href="/signup" className="py-3 px-5 rounded-xl bg-blueDark text-white hover:text-gray-600">
                             Sign Up
                         </a>
@@ -82,7 +82,7 @@ const NavBar: React.FC = () => {
                     <a href="/" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Home</a>
                     <a href="/pricing" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Pricing</a>
                     <a href="/contact" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Contact</a>
-                    <a href="/login" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Login</a>
+                    <a href="/signin" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Login</a>
                     <a href="/signup" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Sign Up</a>
                 </div>
             </div>
