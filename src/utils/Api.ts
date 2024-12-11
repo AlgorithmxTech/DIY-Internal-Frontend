@@ -41,9 +41,13 @@ const refreshAccessToken = async (): Promise<string | null> => {
     setAuthToken(newAccessToken, refreshToken);
 
     return newAccessToken;
-  } catch (error) {
-    console.error('Error refreshing token:', error.response?.data || error);
-    setAuthToken('', ''); // Clear tokens on failure
+  } catch (err: unknown) {
+    if (axios.isAxiosError(err)) {
+      console.error('Error refreshing token:', err.response?.data || err.message);
+    } else {
+      console.error('Error refreshing token:', err);
+    }
+    setAuthToken('', ''); 
     return null;
   }
 };
