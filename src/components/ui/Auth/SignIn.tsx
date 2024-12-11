@@ -17,12 +17,12 @@ const SignIn: React.FC = () => {
         e.preventDefault();
 
         try {
-            const response = await api.post("/auth/login", { email, password });
-            const token = response.data.accessToken;
-            const refresh = response.data.refreshToken;
+            const response = await api.post("/login/", { email, password });
+            const token = response.data.access;
+            const refresh = response.data.refresh;
             if (token) {
                 setAuthToken(token, refresh);
-                navigate("/home"); // Redirect to homepage
+                navigate("/dashbaord"); // Redirect to homepage
             }
         } catch (err) {
             console.log(err);

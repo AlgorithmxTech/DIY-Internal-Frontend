@@ -10,7 +10,7 @@ const CheckEmail: React.FC = () => {
       <h1 className="text-2xl lg:text-3xl font-bold text-blue-600 mb-4 text-center">
         Check Your Email
       </h1>
-      <p className="text-gray-700 text-center mb-6">
+      <p className="text-gray-700 text-center">
         A verification email has been sent to <span className="font-medium text-black">{email}</span>.
       </p>
       <p className="text-gray-600 text-center mb-10">

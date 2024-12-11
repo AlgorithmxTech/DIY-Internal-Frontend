@@ -7,7 +7,7 @@ import api from '../../../utils/Api';
 
 const SignUp: React.FC = () => {
     const navigate = useNavigate();
-    const [fullname, setFullname] = useState("");
+    const [username, setUserName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -18,14 +18,16 @@ const SignUp: React.FC = () => {
         e.preventDefault();
 
         try {
-            const response = await api.post("/auth/register", { fullname, email, password });
-            // const token = response.data.accessToken;
-            // const refresh = response.data.refreshToken;
-            // if (token) {
-            //     setAuthToken(token, refresh);
-            //     navigate("/home");
-            // }
-
+          
+            const formData = {
+                email,
+                username: username, 
+                password,
+                password_confirm: password, 
+            };
+    
+            const response = await api.post("/register/", formData);
+            console.log(response)
             if(response.status===201){
                 navigate("/check-email", { state: { email } });
             }
@@ -78,10 +80,10 @@ const SignUp: React.FC = () => {
                             </div>
                             <input
                                 type="text"
-                                name="fullname"
-                                value={fullname}
-                                onChange={(e) => setFullname(e.target.value)}
-                                placeholder="Full Name"
+                                name="username"
+                                value={username}
+                                onChange={(e) => setUserName(e.target.value)}
+                                placeholder="username"
                                 disabled={isLoading}
                                 required
                                 className="w-full pl-10 p-3 bg-gray-100 text-black placeholder-gray-500 rounded-lg"
