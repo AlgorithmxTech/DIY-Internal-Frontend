@@ -23,7 +23,7 @@ function App() {
       <Routes>
         <Route path='/' index element={<LandingPage />} />
         {/* protected routes */}
-        <Route path='/dashbaord' element={<PrivateRoute>
+        <Route path='/dashboard' element={<PrivateRoute>
           <Main />
         </PrivateRoute>}
         />
@@ -31,7 +31,7 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/forget-password' element={<ForgetPage />} />
-        <Route path="/verify-email/:token" element={<VerifyEmailPage />} />
+        <Route path="/reset-password/:token" element={<VerifyEmailPage />} />
         <Route path='/check-email' element={<CheckEmail />} />
         <Route path="/verification/success" element={<VerificationSuccess />} />  
         <Route path="/verification/already-verified" element={<AlreadyVerified />} />

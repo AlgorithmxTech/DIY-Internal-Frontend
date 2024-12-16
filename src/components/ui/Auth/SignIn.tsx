@@ -15,6 +15,8 @@ const SignIn: React.FC = () => {
 
     const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setIsLoading(true);
+        setError("");
 
         try {
             const response = await api.post("/login/", { email, password });
@@ -22,7 +24,7 @@ const SignIn: React.FC = () => {
             const refresh = response.data.refresh;
             if (token) {
                 setAuthToken(token, refresh);
-                navigate("/dashbaord"); // Redirect to homepage
+                navigate("/dashboard",{ replace: true }); 
             }
         } catch (err) {
             console.log(err);
@@ -92,7 +94,8 @@ const SignIn: React.FC = () => {
                         <a href='/forget-password' className='my-2 text-sm text-blue-500 hover:underline'>Forgot Your Password?</a>
                         <button
                             type="submit"
-                            className="w-full mt-4 bg-blue-600 text-white text-base py-2 rounded hover:bg-blue-700"
+                            className={`w-full mt-4 ${isLoading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"} text-white text-base py-2 rounded`}
+                            disabled={isLoading}
                         >
                             {isLoading ? "Logging in..." : "Sign in"}
                         </button>
