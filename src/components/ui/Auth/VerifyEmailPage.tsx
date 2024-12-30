@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import api from "../../../utils/Api";
+import axios from "axios";
 
 const PasswordReset: React.FC = () => {
   const { token } = useParams<{ token: string }>();
@@ -33,8 +34,15 @@ const PasswordReset: React.FC = () => {
           navigate("/signin");
         }, 2000);
       }
-    } catch (error: any) {
-      setMessage(error.response?.data?.message || "Password reset failed.");
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+      
+        const errorMessage = error.response?.data?.message || "Password reset failed.";
+        setMessage(errorMessage);
+      } else {
+      
+        setMessage("An unexpected error occurred. Please try again later.");
+      }
       setStatus("failed");
     }
   };
