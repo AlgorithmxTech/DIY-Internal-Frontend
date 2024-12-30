@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaFacebook, FaGooglePlus, FaXTwitter, FaLock, FaEye, FaEyeSlash, FaUser } from 'react-icons/fa6';
 import { IoMdMail } from "react-icons/io";
 import api from '../../../utils/Api';
-
+import axios from 'axios';
 const SignUp: React.FC = () => {
     const navigate = useNavigate();
     const [username, setUserName] = useState("");
@@ -35,11 +35,13 @@ const SignUp: React.FC = () => {
             if (response.data.email_status === "sent") {
                 navigate("/check-email", { state: { email },replace:true });
             }
-        } catch (err: any) {
-            if (err.response && err.response.status === 400) {
-                const errorData = err.response.data;
-                setEmailError(errorData.email ? errorData.email[0] : "");
-                setUsernameError(errorData.username ? errorData.username[0] : "");
+        } catch (err) {
+            if (axios.isAxiosError(err) && err.response) {
+                if (err.response.status === 400) {
+                    const errorData = err.response.data;
+                    setEmailError(errorData.email ? errorData.email[0] : "");
+                    setUsernameError(errorData.username ? errorData.username[0] : "");
+                }
             } else {
                 setError("Something went wrong. Please try again later.");
             }

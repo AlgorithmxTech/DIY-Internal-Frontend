@@ -7,9 +7,20 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
+---
+
+## Local Deployment and Production Deployment
+
+To deploy this React + TypeScript + Vite project locally or on development/production machines, refer to the following detailed guides:
+
+- **Local Deployment**: Steps for deploying and testing your project on your local machine can be found in [LOCALDEPLOYMENT.md](./LOCALDEPLOYMENT.md).
+- **Development and Production Deployment**: Instructions for deploying to dev/prod environments using Docker and Docker Compose are available in [DEV_PROD_DEPLOYMENT.md](./DEV_PROD_DEPLOYMENT.md).
+
+---
+
 ## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
 - Configure the top-level `parserOptions` property like this:
 
